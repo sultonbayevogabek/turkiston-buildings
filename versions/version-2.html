@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkiston Buildings - Onlayn Taqdimot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .main-container {
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 135, 135, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(120, 219, 226, 0.3) 0%, transparent 50%),
+                url('img/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        .main-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .accent-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            color: white;
+            transform: rotate(-2deg);
+            transition: all 0.3s ease;
+        }
+        
+        .accent-card:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+        
+        .info-grid-item {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid;
+        }
+        
+        .info-grid-item:nth-child(1) { border-left-color: #FF6B6B; }
+        .info-grid-item:nth-child(2) { border-left-color: #4ECDC4; }
+        .info-grid-item:nth-child(3) { border-left-color: #45B7D1; }
+        .info-grid-item:nth-child(4) { border-left-color: #96CEB4; }
+        
+        .info-grid-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .cta-button {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF8E8E 50%, #FFA8A8 100%);
+            border-radius: 50px;
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(255, 107, 107, 0.6);
+        }
+        
+        /* Fixed Button for Mobile */
+        .fixed-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            display: none;
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        .slide-in {
+            animation: slideIn 1s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .main-container {
+                background-attachment: scroll;
+            }
+            
+            .fixed-cta {
+                display: block;
+            }
+            
+            .mobile-cta-small {
+                padding: 12px 24px;
+                font-size: 16px;
+                border-radius: 25px;
+                min-width: 280px;
+            }
+        }
+        
+        @media (min-width: 769px) {
+            .fixed-cta {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container flex items-center justify-center p-4">
+        <div class="content-wrapper w-full max-w-5xl">
+            <div class="hero-card p-8 md:p-12 slide-in">
+                
+                <!-- Mobile Top CTA Button -->
+                <div class="block md:hidden text-center mb-8">
+                    <div class="bounce">
+                        <a href="https://t.me/your_channel_name" 
+                           class="cta-button mobile-cta-small inline-flex items-center text-white no-underline relative">
+                            <svg class="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                   d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                            Taqdimotda qatnashish
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Company Badge -->
+                <div class="text-center mb-8">
+                    <div class="accent-card inline-block px-8 py-3 mb-6">
+                        <p class="text-lg font-semibold">🏢 Turkiston Buildings</p>
+                    </div>
+                </div>
+                
+                <!-- Main Title -->
+                <div class="text-center mb-12">
+                    <h1 class="text-3xl md:text-5xl font-black text-gray-800 mb-6 leading-tight">
+                        Buxoroda hali bunaqasi 
+                        <span class="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+                            boʻlmagan!
+                        </span>
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                        Foiz va penyalarsiz <strong class="text-purple-600">66 oyga</strong> boʻlib toʻlashga xonadon xohlaysizmi?
+                    </p>
+                </div>
+                
+                <!-- Info Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="info-grid-item p-6 text-center">
+                        <div class="text-5xl mb-4">📅</div>
+                        <h3 class="text-lg font-bold text-gray-700 mb-2">Taqdimot Sanasi</h3>
+                        <p class="text-2xl font-black text-gray-800">25-iyun</p>
+                    </div>
+                    
+                    <div class="info-grid-item p-6 text-center">
+                        <div class="text-5xl mb-4">⏰</div>
+                        <h3 class="text-lg font-bold text-gray-700 mb-2">Boshlanish Vaqti</h3>
+                        <p class="text-2xl font-black text-gray-800">21:00</p>
+                    </div>
+                    
+                    <div class="info-grid-item p-6 text-center">
+                        <div class="text-5xl mb-4">📍</div>
+                        <h3 class="text-lg font-bold text-gray-700 mb-2">Shahar</h3>
+                        <p class="text-2xl font-black text-gray-800">Buxoro</p>
+                    </div>
+                    
+                    <div class="info-grid-item p-6 text-center">
+                        <div class="text-5xl mb-4">💻</div>
+                        <h3 class="text-lg font-bold text-gray-700 mb-2">Format</h3>
+                        <p class="text-2xl font-black text-gray-800">Online</p>
+                    </div>
+                </div>
+                
+                <!-- Call to Action Text -->
+                <div class="text-center mb-10">
+                    <div class="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-gray-200">
+                        <p class="text-lg md:text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
+                            U holda <strong class="text-purple-600">25-iyun kuni soat 21:00</strong> da boʻlib oʻtadigan 
+                            onlayn taqdimotda qatnashing va 
+                            <span class="bg-yellow-200 px-2 py-1 rounded font-bold text-gray-800">katta aksiya ishtirokchisiga</span> 
+                            aylaning!
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Desktop CTA Button -->
+                <div class="hidden md:block text-center">
+                    <div class="bounce">
+                        <a href="https://t.me/your_channel_name" 
+                           class="cta-button inline-flex items-center px-10 py-5 text-xl md:text-2xl font-bold text-white no-underline relative">
+                            <svg class="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                   d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                            Taqdimotda qatnashish
+                        </a>
+                    </div>
+                    <div class="mt-6 flex items-center justify-center space-x-4 text-sm text-gray-500">
+                        <span class="flex items-center">
+                            <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                            Bepul qatnashish
+                        </span>
+                        <span class="flex items-center">
+                            <span class="w-2 h-2 bg-orange-500 rounded-full mr-2"></span>
+                            O'rinlar cheklangan
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Mobile bottom spacing -->
+                <div class="block md:hidden h-20"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Fixed Mobile CTA Button -->
+    <div class="fixed-cta">
+        <a href="https://t.me/your_channel_name" 
+           class="cta-button mobile-cta-small inline-flex items-center text-white no-underline relative">
+            <svg class="w-8 h-8 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                   d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+            </svg>
+            Taqdimotda qatnashish
+        </a>
+    </div>
+</body>
+</html>

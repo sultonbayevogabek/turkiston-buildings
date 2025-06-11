@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkiston Buildings - Yangi Imkoniyat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base styles */
+        body {
+            overflow-x: hidden;
+            background-color: #000;
+        }
+        
+        /* Background with parallax effect */
+        .hero-bg {
+            background-image: url('img/bg-3.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        /* Glass morphism effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+        }
+        
+        /* Gradient text */
+        .text-gradient {
+            background: linear-gradient(to right, #f9fafb, #e5e7eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .accent-gradient {
+            background: linear-gradient(to right, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .highlight-gradient {
+            background: linear-gradient(to right, #fbbf24, #f59e0b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Animated border */
+        .animated-border {
+            position: relative;
+            border-radius: inherit;
+        }
+        
+        .animated-border::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(45deg, #8b5cf6, #ec4899, #f59e0b, #10b981, #3b82f6);
+            -webkit-mask: 
+                linear-gradient(#fff 0 0) content-box, 
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0.7;
+            animation: rotate 4s linear infinite;
+        }
+        
+        @keyframes rotate {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 130% 0%; }
+        }
+        
+        /* Floating elements */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Button shine effect */
+        .shine-button {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to right, 
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            transition: 0.5s;
+            opacity: 0;
+        }
+        
+        .shine-button:hover::after {
+            opacity: 1;
+            left: 100%;
+            transition: 0.7s;
+        }
+        
+        /* Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
+        
+        .particle:nth-child(1) {
+            width: 6px;
+            height: 6px;
+            top: 10%;
+            left: 20%;
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(2) {
+            width: 10px;
+            height: 10px;
+            top: 30%;
+            left: 80%;
+            animation: float 12s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(3) {
+            width: 8px;
+            height: 8px;
+            top: 70%;
+            left: 10%;
+            animation: float 10s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(4) {
+            width: 4px;
+            height: 4px;
+            top: 40%;
+            left: 40%;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .particle:nth-child(5) {
+            width: 12px;
+            height: 12px;
+            top: 80%;
+            left: 70%;
+            animation: float 14s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-bg relative">
+        <!-- Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-br from-black/80 via-purple-900/40 to-black/80 z-0"></div>
+        
+        <!-- Particles -->
+        <div class="particles">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="relative min-h-screen flex items-center justify-center px-4 py-12 z-10">
+            <div class="glass animated-border rounded-3xl max-w-md w-full mx-auto overflow-hidden">
+                <!-- Card Content -->
+                <div class="p-8">
+                    <!-- Logo Section -->
+                    <div class="relative mb-8 flex justify-center">
+                        <div class="absolute inset-0 bg-purple-500/20 rounded-full blur-xl animate-pulse-slow"></div>
+                        <img src="img/logo.webp" alt="Turkiston Buildings" class="w-24 h-24 object-contain relative z-10 rounded-2xl shadow-lg transform transition-all duration-500 hover:scale-105 floating">
+                    </div>
+                    
+                    <!-- Title Section -->
+                    <h1 class="text-3xl md:text-4xl font-extrabold mb-4 text-center text-gradient leading-tight">
+                        Buxoroda hali bunaqasi boʻlmagan
+                    </h1>
+                    
+                    <!-- Description -->
+                    <p class="text-gray-300 text-center mb-6">
+                        Foiz va penyalarsiz <span class="accent-gradient font-semibold">66 oyga boʻlib toʻlashga</span> xonadon xohlaysizmi?
+                    </p>
+                    
+                    <!-- Info Cards -->
+                    <div class="grid grid-cols-3 gap-3 mb-6">
+                        <div class="glass rounded-xl p-3 text-center transition-all duration-300 hover:bg-white/10 hover:scale-105">
+                            <p class="text-xs text-purple-300 font-medium uppercase tracking-wider mb-1">Sana</p>
+                            <h3 class="text-white font-bold">25-iyun</h3>
+                        </div>
+                        <div class="glass rounded-xl p-3 text-center transition-all duration-300 hover:bg-white/10 hover:scale-105">
+                            <p class="text-xs text-purple-300 font-medium uppercase tracking-wider mb-1">Vaqt</p>
+                            <h3 class="text-white font-bold">21:00</h3>
+                        </div>
+                        <div class="glass rounded-xl p-3 text-center transition-all duration-300 hover:bg-white/10 hover:scale-105">
+                            <p class="text-xs text-purple-300 font-medium uppercase tracking-wider mb-1">Manzil</p>
+                            <h3 class="text-white font-bold">Buxoro</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Additional Info -->
+                    <p class="text-gray-300 text-center mb-8">
+                        U holda <span class="accent-gradient font-semibold">25-iyun kuni soat 21:00</span> da boʻlib oʻtadigan onlayn taqdimotda qatnashing va <span class="highlight-gradient font-semibold">katta aksiya</span> ishtirokchisiga aylaning!
+                    </p>
+                    
+                    <!-- CTA Button -->
+                    <a href="https://t.me/your_channel_link" target="_blank" rel="noopener noreferrer" class="shine-button block w-full bg-gradient-to-r from-purple-600 to-pink-500 hover:from-purple-700 hover:to-pink-600 text-white font-bold py-4 px-6 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] text-center">
+                        <div class="flex items-center justify-center space-x-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.12-.05-.17-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.03-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.37.08-.01.27.02.39.12.1.08.13.19.14.27-.01.06.01.24-.04.37z"/>
+                            </svg>
+                            <span>Taqdimotda qatnashish</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
