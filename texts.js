@@ -43,7 +43,7 @@ const text = document.querySelector("[data-text]");
 const button = document.querySelector("[data-btn]");
 
 ['a', 'b', 'c', 'd'].forEach(key => {
-  if (url.includes(key)) {
+  if (url.includes(key + '/')) {
     title.innerHTML = texts[key].title;
     text.innerHTML = texts[key].text;
     button.innerHTML = texts[key].buttonText;
