@@ -18,12 +18,12 @@ const texts = {
     buttonText: `Aksiyada qatnashish`
   },
   c: {
-    title: `Hechqanday boshlangʻich toʻlovsiz uyli boʻling!`,
+    title: `Ҳечқандай бошланғич тўловсиз уйли бўлинг!`,
     text: `
-      Buxoro shahridan kredit va penyalarsiz 66 oyga boʻlib toʻlashga ishonchli kompaniyadan xonadon xarid qilishni xohlaysizmi? 
-      U holda 25-iyun kuni soat 21:00 da boʻlib oʻtadigan onlayn taqdimotda qatnashing va aksiya ishtirokchisiga aylaning!
+      Бухоро шаҳридан фоиз ва пеняларсиз 66 ойга бўлиб тўлашга ишончли компаниядан хонадон харид қилишни хоҳлайсизми? <br>
+      У ҳолда 25-июн куни бўлиб ўтадиган бепул онлайн тақдимотда қатнашинг ва аксия иштирокчисига айланинг!
     `,
-    buttonText: `Taqdimotga qatnashish`
+    buttonText: `Бепул қатнашиш`
   },
   d: {
     title: `Bunday imkoniyat atiga 100 ta xonadon uchun!`,
