@@ -2,12 +2,12 @@
 
 const texts = {
   a: {
-    title: `Buxoroda hali bunaqasi <br> boʻlmagan!`,
+    title: `Бухорода ҳали бунақаси бўлмаган!`,
     text: `
-      Boshlang‘ich toʻlovsiz, 66 oyga boʻlib toʻlash evaziga xonadon egasiga aylaning! Katta aksiya atigi 100 ta uy uchun!
-       Bunday imkoniyatni oʻtkazib yubormaslik uchun 25-iyun kuni soat 21:00 da onlayn taqdimotda ishtirok eting!
+      Бошланғич тўловсиз, 66 ойга бўлиб тўлаш евазига хонадон егасига айланинг! <br>
+      Катта аксия атига 100 та уй учун. Бундай имкониятни ўтказиб юбормаслик учун 25-июн куни бепул онлайн тақдимотда иштирок етинг!
     `,
-    buttonText: `Taqdimotga qatnashish`
+    buttonText: `Бепул тақдимотга қатнашиш`
   },
   b: {
     title: `Buxoro shahridan oyiga 3-4 mln soʻmdan toʻlab uyli boʻling!`,
