@@ -34,6 +34,14 @@ const texts = {
     `,
     buttonText: `Taqdimotda qatnashish`
   },
+  e: {
+    title: `Oyiga 2 480 000 soʻmdan toʻlab uy olishni xohlaysizmi?`,
+    text: `
+      Boshlangʻich toʻlovsiz, kredit va foizlarsiz 1 dona pasport orqali 66 oyga boʻlib toʻlashga katta aksiyada xonadon xarid qiling! 
+      Buning uchun 25-iyun kuni telegramda boʻladigan bepul onlayn taqdimotda qatnashing!
+    `,
+    buttonText: `Telegramga qoʻshilish`
+  },
 };
 
 const url = window.location.href;
@@ -42,7 +50,7 @@ const title = document.querySelector("[data-title]");
 const text = document.querySelector("[data-text]");
 const button = document.querySelector("[data-btn]");
 
-['a', 'b', 'c', 'd'].forEach(key => {
+['a', 'b', 'c', 'd','e'].forEach(key => {
   if (url.includes(key + '/')) {
     title.innerHTML = texts[key].title;
     text.innerHTML = texts[key].text;
